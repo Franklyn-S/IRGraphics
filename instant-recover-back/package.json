@@ -1,0 +1,17 @@
+{
+  "name": "instant-recover-back",
+  "version": "1.0.0",
+  "description": "Handlers request to change redis_ir.conf",
+  "main": "app.js",
+  "author": "Franklyn Seabra",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

@@ -1,10 +1,10 @@
-import ChartComponent from "./components/ChartComponent";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div>
-      <ChartComponent />
-    </div>
+    <>
+      <Header />
+    </>
   );
 }
 
