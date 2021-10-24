@@ -12,7 +12,12 @@ const Header = () => {
       <S.Items>
         <S.Item>
           <S.HeaderLink href="/">
-            <img width={150} height={75} src={LogoArida} alt="Logo Arida"></img>
+            <S.DesktopImg
+              width={150}
+              height={75}
+              src={LogoArida}
+              alt="Logo Arida"
+            />
           </S.HeaderLink>
         </S.Item>
         <S.Item>
@@ -27,13 +32,13 @@ const Header = () => {
         </S.Item>
       </S.Items>
       <DrawerToggle onCLick={() => setShowDrawer(true)} />
-      <img
+      <S.MobileImg
         width={150}
         height={75}
         src={LogoArida}
         style={{ margin: "auto" }}
         alt="Logo Arida"
-      ></img>
+      />
       <SideDrawer isOpen={showDrawer} close={() => setShowDrawer(false)} />
     </S.Header>
   );

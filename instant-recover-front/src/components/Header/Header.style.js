@@ -37,3 +37,17 @@ export const HeaderLink = styled.a`
   height: 100%;
   padding: 20px 0px;
 `;
+
+export const DesktopImg = styled.img`
+  display: none;
+  @media (min-width: 768px) {
+    display: flex;
+  }
+`;
+
+export const MobileImg = styled.img`
+  display: flex;
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
