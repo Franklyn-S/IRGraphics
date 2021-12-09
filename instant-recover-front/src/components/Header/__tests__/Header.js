@@ -5,7 +5,7 @@ import Header from "../Header";
 describe("<Header />", () => {
   beforeEach(() => jest.clearAllMocks());
 
-  xit("Should render correctly", () => {
+  it("Should render correctly", () => {
     const { container } = render(<Header />);
     expect(container).toBeInTheDocument();
   });

@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import { Link } from "react-router-dom";
 
 export const Header = styled.header(() => ({
   display: "flex",
@@ -29,13 +30,14 @@ export const Item = styled.li`
   cursor: pointer;
 `;
 
-export const HeaderLink = styled.a`
+export const HeaderLink = styled(Link)`
   text-decoration: none;
   cursor: pointer;
   display: block;
   width: 100%;
   height: 100%;
   padding: 20px 0px;
+  color: white;
 `;
 
 export const DesktopImg = styled.img`

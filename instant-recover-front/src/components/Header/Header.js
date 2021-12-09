@@ -6,12 +6,12 @@ import SideDrawer from "./SideDrawer";
 
 const Header = () => {
   const [showDrawer, setShowDrawer] = useState(false);
-  const isSelected = (path) => window.location.pathname === path;
+
   return (
     <S.Header>
       <S.Items>
         <S.Item>
-          <S.HeaderLink href="/">
+          <S.HeaderLink to="/">
             <S.DesktopImg
               width={150}
               height={75}
@@ -21,14 +21,10 @@ const Header = () => {
           </S.HeaderLink>
         </S.Item>
         <S.Item>
-          <S.HeaderLink href="/" selected={isSelected("/")}>
-            Home
-          </S.HeaderLink>
+          <S.HeaderLink to="/">Home</S.HeaderLink>
         </S.Item>
         <S.Item>
-          <S.HeaderLink href="/authors" selected={isSelected("/authors")}>
-            Authors
-          </S.HeaderLink>
+          <S.HeaderLink to="/authors">Authors</S.HeaderLink>
         </S.Item>
       </S.Items>
       <DrawerToggle onCLick={() => setShowDrawer(true)} />
