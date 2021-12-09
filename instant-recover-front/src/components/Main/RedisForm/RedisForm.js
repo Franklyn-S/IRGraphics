@@ -2,20 +2,22 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import { initialFormValues } from "utils/formValues";
 import { validationSchema } from "utils/validations";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import FormHelperText from "@mui/material/FormHelperText";
-import MenuItem from "@mui/material/MenuItem";
+//import FormControl from "@mui/material/FormControl";
+//import FormLabel from "@mui/material/FormLabel";
+//import InputLabel from "@mui/material/InputLabel";
+//import Select from "@mui/material/Select";
+//import FormHelperText from "@mui/material/FormHelperText";
+//import MenuItem from "@mui/material/MenuItem";
 //import FormGroup from "@mui/material/FormGroup";
 //import FormControlLabel from "@mui/material/FormControlLabel";
 import Button from "@mui/material/Button";
 //import Tooltip from "@mui/material/Tooltip";
 //import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import CircularProgress from "@mui/material/CircularProgress";
-import { StyledForm, StyledSelect } from "./RedisForm.style";
+import { StyledForm } from "./RedisForm.style";
 import InputSwitch from "./inputs/InputSwitch";
+import InputSelect from "./inputs/InputSelect";
+import { IndexedLogStructureOptions } from "utils/options";
 
 const RedisForm = () => {
   const [loading, setLoading] = useState(false);
@@ -32,50 +34,21 @@ const RedisForm = () => {
   });
   return (
     <StyledForm onSubmit={formik.handleSubmit}>
-      <StyledSelect>
-        <FormLabel component="legend">
-          Data structuter of the indexed log.
-        </FormLabel>
-        <FormControl
-          sx={{ minWidth: "200px", margin: "10px 0" }}
-          error={
-            formik.touched.indexedlog_structure &&
-            formik.errors.indexedlog_structure
-          }
-        >
-          <InputLabel id="indexedlog_structure_label">
-            Indexed log structure
-          </InputLabel>
-          <Select
-            labelId="indexedlog_structure_label"
-            id="indexedlog_structure"
-            name="indexedlog_structure"
-            label="Indexed log structure"
-            value={formik.values.indexedlog_structure}
-            onChange={formik.handleChange}
-            error={
-              formik.touched.indexedlog_structure &&
-              Boolean(formik.errors.indexedlog_structure)
-            }
-            helperText={
-              formik.touched.indexedlog_structure &&
-              formik.errors.indexedlog_structure
-            }
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value="BTREE">BTREE</MenuItem>
-            <MenuItem value="HASH">HASH</MenuItem>
-          </Select>
-          {formik.touched.indexedlog_structure &&
-            formik.errors.indexedlog_structure && (
-              <FormHelperText>
-                {formik.errors.indexedlog_structure}
-              </FormHelperText>
-            )}
-        </FormControl>
-      </StyledSelect>
+      <InputSelect
+        touched={formik.touched.indexedlog_structure}
+        fieldName="indexedlog_structure"
+        label="Indexed log structure"
+        value={formik.values.indexedlog_structure}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        helperText={
+          formik.touched.indexedlog_structure &&
+          formik.errors.indexedlog_structure
+        }
+        options={IndexedLogStructureOptions}
+        errorMessage={formik.errors.indexedlog_structure}
+        title="Data structuter of the indexed log."
+      />
       <InputSwitch
         value={formik.values.instant_recovery_synchronous}
         setFieldValue={formik.setFieldValue}
@@ -85,7 +58,6 @@ const RedisForm = () => {
         If OFF is setted, the log indexing is asychronous, i.e., a transaction must not wait
         for the log indexing. OFF is the default value."
       />
-
       {loading && <CircularProgress />}
       <Button
         color="primary"

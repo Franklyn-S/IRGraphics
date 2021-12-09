@@ -12,7 +12,6 @@ import LogoArida from "assets/images/ARiDa-logo.png";
 import { Link } from "react-router-dom";
 
 const SideDrawer = ({ isOpen, close }) => {
-  console.log(isOpen);
   return (
     <>
       <Backdrop
