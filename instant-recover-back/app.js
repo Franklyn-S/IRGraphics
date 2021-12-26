@@ -1,4 +1,6 @@
 const fs = require("fs");
+const path = require("path");
+const rootDirectory = require("./utils/path");
 
 const express = require("express");
 
@@ -6,8 +8,16 @@ const app = express();
 
 app.use(express.json());
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  next();
+});
+
 app.post("/update-config", (req, res, next) => {
-  const filePath = "test.conf";
+  const filePath = path.join(rootDirectory, "data", "test.conf");
   const configs = req.body;
   const keys = Object.keys(configs);
   try {

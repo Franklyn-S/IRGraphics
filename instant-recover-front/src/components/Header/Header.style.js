@@ -37,7 +37,10 @@ export const HeaderLink = styled(Link)`
   width: 100%;
   height: 100%;
   padding: 20px 0px;
-  color: white;
+
+  @media (min-width: 768px) {
+    color: white;
+  }
 `;
 
 export const DesktopImg = styled.img`

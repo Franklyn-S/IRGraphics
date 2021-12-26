@@ -4,6 +4,7 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   margin-left: 20px;
+  overflow: auto;
   /*@media (min-width: 768px) {
     align-items: initial;
   }*/

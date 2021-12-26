@@ -23,7 +23,7 @@ export const initialFormValues = {
   preload_database_and_restart: 0,
   memtier_benchmark_parameters: "",
   generate_recovery_report: "OFF",
-  recovery_report_filename: "ecovery_report/recovery_report.txt",
+  recovery_report_filename: "recovery_report/recovery_report.txt",
   generate_checkpoint_ratio: "OFF",
   generate_executed_commands_csv: "OFF",
   executed_commands_csv_filename: "datasets/datasets.csv",

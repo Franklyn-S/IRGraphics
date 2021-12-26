@@ -1,12 +1,11 @@
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Tooltip from "@mui/material/Tooltip";
-import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import Switch from "@mui/material/Switch";
+import ToolTipHelper from "./shared/TooltipHelper";
 
 const InputSwitch = ({ value, setFieldValue, fieldName, label, ...rest }) => {
   return (
-    <FormGroup style={{ flexDirection: "row" }}>
+    <FormGroup style={{ flexDirection: "row", margin: "10px 0" }}>
       <FormControlLabel
         control={
           <Switch
@@ -21,10 +20,9 @@ const InputSwitch = ({ value, setFieldValue, fieldName, label, ...rest }) => {
           />
         }
         label={label}
+        style={{ marginRight: 0 }}
       />
-      <Tooltip title={rest.helperText}>
-        <HelpOutlineIcon />
-      </Tooltip>
+      {rest.helperText && <ToolTipHelper title={rest.helperText} />}
     </FormGroup>
   );
 };
